@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - TuteDude</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .checkmark {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease-out 0.3s both;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .checkmark svg {
+            width: 60px;
+            height: 60px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawCheck 0.8s ease-out 0.6s forwards;
+        }
+        
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 0.6s ease-out 0.4s both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .message {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.6s ease-out 0.6s both;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            animation: fadeIn 0.6s ease-out 0.8s both;
+        }
+        
+        .info-box h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-box p {
+            color: #555;
+            margin: 0.5rem 0;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            animation: fadeIn 0.6s ease-out 1s both;
+        }
+        
+        .benefit-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .benefit-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeIn 0.6s ease-out 1.2s both;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            animation: fadeIn 0.6s ease-out 1.4s both;
+        }
+        
+        .social-links h4 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        footer {
+            margin-top: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            animation: fadeIn 0.6s ease-out 1.6s both;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">
+            <svg viewBox="0 0 52 52">
+                <path d="M14 27l7 7 16-16"/>
+            </svg>
+        </div>
+        
+        <h1>Thank You!</h1>
+        
+        <p class="message">
+            <strong>Your feedback has been successfully submitted!</strong><br>
+            We truly appreciate you taking the time to share your thoughts with us. 
+            Your input helps us improve and deliver better learning experiences for all our students.
+        </p>
+        
+        <div class="info-box">
+            <h3>What Happens Next?</h3>
+            <p>✓ Our team will review your feedback within 24-48 hours</p>
+            <p>✓ You'll receive a confirmation email shortly</p>
+            <p>✓ If you've raised any concerns, we'll respond within 3 business days</p>
+        </div>
+        
+        <!-- <div class="benefits">
+            <div class="benefit-card">
+                <h4>🎓 Continue Learning</h4>
+                <p>Explore more courses and expand your knowledge</p>
+            </div>
+            <div class="benefit-card">
+                <h4>🏆 Track Progress</h4>
+                <p>View your achievements and completed courses</p>
+            </div>
+            <div class="benefit-card">
+                <h4>💬 Join Community</h4>
+                <p>Connect with fellow learners worldwide</p>
+            </div>
+        </div> -->
+        
+        <div class="buttons">
+            <a href="#" class="btn btn-primary" onclick="window.history.back(); return false;">Return to Home</a>
+            <a href="#" class="btn btn-secondary">Browse Courses</a>
+        </div>
+        
+        <!-- <div class="social-links">
+            <h4>Stay Connected With Us</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="Facebook">f</a>
+                <a href="#" class="social-icon" title="Twitter">𝕏</a>
+                <a href="#" class="social-icon" title="LinkedIn">in</a>
+                <a href="#" class="social-icon" title="Instagram">📷</a>
+                <a href="#" class="social-icon" title="YouTube">▶</a>
+            </div>
+        </div> -->
+        
+        <footer>
+            <p>&copy; 2025 TuteDude. All rights reserved.</p>
+            <p><small>If you need immediate assistance, contact us at support@harin.com</small></p>
+        </footer>
+    </div>
+</body>
+</html>
